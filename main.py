@@ -47,7 +47,8 @@ async def catch(message: discord.Message):
 
 @bot.event
 async def on_ready():
-    await bot.change_presence(status=discord.Status.online)
+    activity= activity = discord.Activity(type=discord.ActivityType.watching, name="Pokétwo•FFA")
+    await bot.change_presence(status=discord.Status.online, activity=activity)
     print('Logged in as {0.user}'.format(bot))
     bot.db = await aiosqlite.connect("pokemon.db")
     await bot.db.execute(
